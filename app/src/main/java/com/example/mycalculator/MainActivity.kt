@@ -32,4 +32,24 @@ class MainActivity : AppCompatActivity() {
          Lastdot=true
       }
     }
+    fun operator(view: View){
+        if (Lastnumber && !operateadded(tv?.text.toString())){
+            tv?.append((view as Button).text)
+        }
+        Lastnumber=false
+        Lastdot=false
+
+    }
+    fun operateadded(value: String):Boolean{
+      return if (value.startsWith("-")){
+                 false
+      }
+        else
+      {
+          value.contains("+")
+                  ||value.contains("-")
+                  ||value.contains("*")
+                  ||value.contains("/")
+      }
+    }
 }
